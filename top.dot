@@ -1,0 +1,11 @@
+graph G {
+
+	/* Pathway Concepts */
+	  pathwayUrl [label="pathway", shape="oval", color=darkolivegreen3, style = filled]
+	  rdfDataNodeUrl  [label="Pathway Element", shape="oval", color=darkolivegreen3, , style = filled]
+	  pubmedReference [label="PubMed reference", shape = "oval", color=darkolivegreen3, style = filled]
+	
+	/*	relationships */
+	pubmedReference -- pathwayUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+	rdfDataNodeUrl -- pathwayUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+	}

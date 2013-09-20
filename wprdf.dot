@@ -1,0 +1,83 @@
+graph G {
+
+	overlap=false;
+	ranksep=2;
+	 ratio=auto;
+  /*	entities */
+  
+/* Pathway Concepts */
+  pathwayUrl [label="pathway", shape="oval", color=darkolivegreen3, , style = filled]
+  rdfDataNodeUrl  [label="Pathway Element", shape="oval", color=darkolivegreen3, , style = filled]
+  pubmedReference [label="PubMed reference", shape = "oval", color=darkolivegreen3, style = filled]
+  wpUrl 
+  
+  skosCollection [label="skos:Collection", shape=box, URL="http://en.wikipedia.org/wiki/John de Fries"]
+  identifiersOrgIDUrl [label="identifiers.org/{source}/identifier", shape=oval]
+  identifierLiteral [label="revision", shape=box]
+  revisionLiteral [label="revision", shape=box]
+  titleLiteral [label="title", shape=box]
+  wpPhysiologicalProcess [label="wp:PhysiologicalProcess", shape=diamond, URL="http://vocabularies.wikipathways.org/wp#PhysiologicalProcess"]
+  wpMetabolicProcess [label="wp:MetabolicProcess", shape=diamond, URL="http://vocabularies.wikipathways.org/wp#wpMetabolicProcess"]
+  wpMetabolicProcess [label="wp:MetabolicProcess", shape=diamond, URL="http://vocabularies.wikipathways.org/wp#MetabolicProcess"]
+  wpMolecularFunction [label="wp:MolecularFunction", shape=diamond, URL="http://vocabularies.wikipathways.org/wp#MolecularFunction"]
+  descriptionLiteral [label="description", shape=box]
+  genmappNotesLiteral [label="GenMapp Notes", shape=box]
+  ncbiTaxonorganismUrl [label="ncbiTaxon:organismUrl", shape=box, URL="http://en.wikipedia.org/wiki/John de Fries"]
+  organismLiteral
+  ncbiTaxonorganismUrl [label="ncbi:TaxonorganismUrl", shape=box, URL="http://en.wikipedia.org/wiki/John de Fries"]
+  pathwayUrl
+  wpGroupUrl
+  gpmlGroup [label="gpml:Group", shape=box, URL="http://vocabularies.wikipathways.org/gpml#Group"]
+  graphIdLiteral
+  gpmlrequiresCuratorsAnnotation [label="gpml:requiresCuratorsAnnotation", shape=box, URL="http://vocabularies.wikipathways.org/gpml#requiresCuratorsAnnotation"]
+  commentLiteral
+  wpGeneProduct [label="wp:GeneProduct", shape=box, URL="http://vocabularies.wikipathways.org/wp#GeneProduct"]
+  wpMetabolite [label="wp:Metabolite", shape=box, URL="http://vocabularies.wikipathways.org/wp#Metabolite"]
+  wpPathway [label="wp:Pathway", shape=box, URL="http://vocabularies.wikipathways.org/wp#Pathway"]
+  wpProtein [label="wp:Protein", shape=box, URL="http://vocabularies.wikipathways.org/wp#Protein"]
+  wpComplex [label="wp:Complex", shape=box, URL="http://vocabularies.wikipathways.org/wp#Complex"]
+  dnIdentifierLiteral [label="gpml:requiresCuratorsAnnotation", shape=box, URL="http://vocabularies.wikipathways.org/gpml#requiresCuratorsAnnotation"]
+  
+  gpmlDataNode [label="gpml:DataNode"]
+  skosConcept [label="skos:Concept"]
+/*	relationships */
+	pathwayUrl  -- wpUrl  [label="foaf:page", URL="http://xmlns.com/foaf/0.1/page"]
+	pathwayUrl --  wpPathway [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	pathwayUrl --  skosCollection [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	pathwayUrl -- identifiersOrgIDUrl [label="dc:identifier", URL="http://purl.org/dc/elements/1.1/identifier"]
+	pathwayUrl -- identifierLiteral [label="dcterms:identifier", URL="http://purl.org/dc/terms/identifier/"]
+	pathwayUrl -- revisionLiteral [label="pav:version", URL="http://purl.org/pav/version"]
+	pathwayUrl -- titleLiteral [label="dc:title", URL="http://purl.org/dc/elements/1.1/title"]
+	pathwayUrl -- wpPhysiologicalProcess [label="wp:category", URL="http://vocabularies.wikipathways.org/wp#category"]
+	pathwayUrl -- wpMetabolicProcess [label="wp:category", URL="http://vocabularies.wikipathways.org/wp#category"]
+	pathwayUrl -- wpCellularProcess [label="wp:category", URL="http://vocabularies.wikipathways.org/wp#category" ]
+	pathwayUrl -- wpMolecularFunction [label="wp:category", URL="http://vocabularies.wikipathways.org/wp#category"]
+	pathwayUrl -- descriptionLiteral [label="dcterms:description", URL="http://purl.org/dc/terms/description"]	
+	pathwayUrl -- genmappNotesLiteral [label="gpml:genmappNotes", URL="http://vocabularies.wikipathways.org/gpml#genmappNotes"]
+	
+	ncbiTaxonorganismUrl --  organismLiteral [label="rdfs:label", URL="http://www.w3.org/2000/01/rdf-schema#label"]
+	pathwayUrl --  ncbiTaxonorganismUrl [label="wp:organism", URL="http://vocabularies.wikipathways.org/wp#organism"]
+	
+	wpGroupUrl -- gpmlGroup [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	wpGroupUrl --  graphIdLiteral [label="gpml:graphid", URL="http://vocabularies.wikipathways.org/gpml#graphid"]
+	wpGroupUrl --  pathwayUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+	rdfDataNodeUrl -- gpmlrequiresCuratorsAnnotation [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	rdfDataNodeUrl -- commentLiteral [label="rdfs:comment", URL="http://www.w3.org/2000/01/rdf-schema#comment"]
+	rdfDataNodeUrl -- wpGeneProduct [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	rdfDataNodeUrl -- wpMetabolite [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	rdfDataNodeUrl -- wpPathway [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	rdfDataNodeUrl -- wpProtein [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	rdfDataNodeUrl -- wpComplex [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	rdfDataNodeUrl -- dnIdentifierLiteral [label="dcterms:identifier", URL="http://purl.org/dc/terms/isPartOf"]
+	rdfDataNodeUrl -- pathwayUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+
+	rdfDataNodeUrl --  wpGroupUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+	rdfDataNodeUrl -- datasourceLiteral [label="dc:source", URL="http://purl.org/dc/elements/1.1/source"]
+	rdfDataNodeUrl -- gpmlDataNode [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	rdfDataNodeUrl -- skosConcept [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+	rdfDataNodeUrl -- labelLiteral [label="rdfs:label", URL="http://www.w3.org/2000/01/rdf-schema#label"]
+	
+	pubmedReference -- pathwayUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+ /* ranks */
+
+}
