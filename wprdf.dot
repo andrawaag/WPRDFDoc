@@ -1,8 +1,7 @@
 graph G {
 
-	overlap=false;
-	ranksep=3;
-	ratio=auto;
+overlap=scale;
+
 
   
 /* Pathway Concepts */
@@ -10,8 +9,9 @@ graph G {
   skosCollection [label="skos:Collection", shape=box, URL="http://en.wikipedia.org/wiki/John de Fries"]
 
 
-  
-  
+  {rank=same; pathwayUrl}
+	{rank=same; rdfDataNodeUrl }
+   {rank=same; pubmedReference}
   wpGroupUrl
   gpmlGroup [label="gpml:Group", shape=box, URL="http://vocabularies.wikipathways.org/gpml#Group"]
   
@@ -20,6 +20,8 @@ graph G {
 
 /* Pathway */
  subgraph pathway {
+style=filled;
+  color=blue
   pathwayUrl [label="Pathway", shape="oval", color=darkolivegreen3, style = filled]
   pathwayIdentifier [label="identifier", shape=box]
   pathwayRevision [label="revision", shape=box]
@@ -35,7 +37,7 @@ graph G {
   
 
    /** Pathway relationships **/
-	pathwayUrl  -- wpUrl  [label="foaf:page", URL="http://xmlns.com/foaf/0.1/page"]
+	pathwayUrl  -- wpUrl  [label="foaf:page", URL="http://xmlns.com/foaf/0.1/page", edgetooltip="http://xmlns.com/foaf/0.1/page"]
 	pathwayUrl --  wpPathway [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
 	pathwayUrl --  skosCollection [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
 	pathwayUrl -- pathwayIdentifierIo [label="dc:identifier", URL="http://purl.org/dc/elements/1.1/identifier"]
@@ -58,7 +60,7 @@ graph G {
   dnDatasource [label="source", shape=box]
   wpGeneProduct [label="wp:GeneProduct", shape=oval, URL="http://vocabularies.wikipathways.org/wp#GeneProduct", color=orange]
   wpMetabolite [label="wp:Metabolite", shape=oval, URL="http://vocabularies.wikipathways.org/wp#Metabolite", color=orange]
-  wpPathway [label="wp:Pathway", shape=oval, URL="http://vocabularies.wikipathways.org/wp#Pathway", color=orange]
+  wpPathway [label="wp:Pathway", shape=oval, URL="http://vocabularies.wikipathways.org/wp#Pathway"]
   wpProtein [label="wp:Protein", shape=oval, URL="http://vocabularies.wikipathways.org/wp#Protein", color=orange]
   wpComplex [label="wp:Complex", shape=oval, URL="http://vocabularies.wikipathways.org/wp#Complex", color=orange]
   gpmlDataNode [label="gpml:DataNode"]
@@ -81,8 +83,8 @@ graph G {
 	rdfDataNodeUrl -- wpPathway [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type", color=orange]
 	rdfDataNodeUrl -- wpProtein [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type", color=orange]
 	rdfDataNodeUrl -- wpComplex [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type", color=orange]
-	rdfDataNodeUrl -- pathwayUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
-	rdfDataNodeUrl --  wpGroupUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf", color=yellow]
+	rdfDataNodeUrl -- pathwayUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf", edgetooltip = "http://xmlns.com/foaf/0.1/page"]
+	rdfDataNodeUrl --  wpGroupUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf", color=orange]
 	rdfDataNodeUrl -- gpmlDataNode [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
 	rdfDataNodeUrl -- skosConcept [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
 	rdfDataNodeUrl -- dnlabel [label="rdfs:label", URL="http://www.w3.org/2000/01/rdf-schema#label"]
@@ -121,14 +123,14 @@ graph G {
 	labelcentery  [label="centery", shape=box]
 	labelfillcolor  [label="fillcolor", shape=box]
 	labelfontsize  [label="font size", shape=box]
-subgraph pubmed {
+
 /* Pubmed references */
   pubmedReference [label="PubMed reference", shape = "oval", color=darkolivegreen3, style = filled]
   pmid  [label="pmid", shape=box]
   pmidio [label="http://identifiers.org/pubmed/{pmid}", shape="oval"]
   pubmedReference -- pmidio [label="dc:identifier"]
   pubmedReference -- pmid [label="dcterms:identifier"]
-  }
+
 
 /* tqxonomy */
 
@@ -140,7 +142,7 @@ pathwayUrl --  ncbiTaxonorganismUrl [label="wp:organism", URL="http://vocabulari
 /* Interactions */
 interactionUrl [label="Interaction", shape = "oval", color=darkolivegreen3, style = filled]
 interactionGraphId [label="GraphId", shape=box]
-gpmlInteraction [label="gpml:Interaction"]
+gpmlInteraction [label="gpml:Interaction", URL="http://vocabularies.wikipathways.org/gpml#Interaction"]
 interactionZorder [label="ZOrder", shape=box]
 interactionLineStyle [label="LineStyle", shape=box]
 interactionLineThickness [label="LineThickness", shape=box]
@@ -160,27 +162,32 @@ interactionAnchorShape [label="Shape", shape=box]
 interactionAnchorGraphId [label="GraphId", shape=box]
 
 
+
 interactionUrl -- pathwayUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
 interactionUrl -- interactionGraphId [label="gpml:graphid", URL="http://vocabularies.wikipathways.org/gpml#graphid"]
 interactionUrl -- gpmlInteraction [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
-interactionUrl -- interactionZorder
-interactionUrl -- interactionLineStyle
-interactionUrl -- interactionLineThickness
-interactionUrl -- interactionCenterX
-interactionUrl -- interactionCenterY
-interactionUrl -- interactionPoint
-interactionPoint -- interactionPointOrder
-interactionPoint -- interactionPointX
-interactionPoint -- interactionPointY
-interactionPoint -- interactionPointGraphRef
-interactionPoint -- interactionPointRelX
-interactionPoint -- interactionPointRelY
-interactionPoint -- interactionPointArrowHead
-interactionUrl -- interactionAnchor
-interactionAnchor -- interactionAnchorPosition
-interactionAnchor -- interactionAnchorShape
-interactionAnchor -- interactionAnchorGraphId
+interactionUrl -- interactionZorder [label="gpml:zorder", URL="http://vocabularies.wikipathways.org/gpml#zorder"]
+interactionUrl -- interactionLineStyle [label="gpml:linestyle", URL="http://vocabularies.wikipathways.org/gpml#linestyle"]
+interactionUrl -- interactionLineThickness [label="gpml:linethickness", URL="http://vocabularies.wikipathways.org/gpml#linethickness"]
+interactionUrl -- interactionCenterX [label="gpml:centerx", URL="http://vocabularies.wikipathways.org/gpml#centerx"]
+interactionUrl -- interactionCenterY [label="gpml:centery", URL="http://vocabularies.wikipathways.org/gpml#centery"]
+interactionPoint -- interactionUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+interactionPoint -- interactionPointOrder [label="gpml:pointOrder", URL="http://vocabularies.wikipathways.org/gpml#pointOrder"]
+interactionPoint -- interactionPointX [label="gpml:x", URL="http://vocabularies.wikipathways.org/gpml#x"]
+interactionPoint -- interactionPointY [label="gpml:y", URL="http://vocabularies.wikipathways.org/gpml#y"]
+interactionPoint -- interactionPointGraphRef [label="gpml:graphref", URL="http://vocabularies.wikipathways.org/gpml#graphref"]
+interactionPoint -- interactionPointRelX [label="gpml:relx", URL="http://vocabularies.wikipathways.org/gpml#relX"]
+interactionPoint -- interactionPointRelY [label="gpml:rely", URL="http://vocabularies.wikipathways.org/gpml#relY"]
+interactionPoint -- interactionPointArrowHead [label="gpml:arrowhead", URL="http://vocabularies.wikipathways.org/gpml#arrowhead"]
+interactionAnchor -- interactionUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+interactionAnchor -- interactionAnchorPosition [label="gpml:arrowhead", URL="http://vocabularies.wikipathways.org/gpml#anchorPosition"]
+interactionAnchor -- interactionAnchorShape [label="gpml:arrowhead", URL="http://vocabularies.wikipathways.org/gpml#anchorShape"]
+interactionAnchor -- interactionAnchorGraphId [label="gpml:graphid", URL="http://vocabularies.wikipathways.org/gpml#graphid"]
 
+dnidentifiersIO -- interactionUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+interactionUrl -- interactionUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+interactionUrl -- identifiersorg [label="wp:interactionSource", URL="http://vocabularies.wikipathways.org/wp:interactionSource"]
+interactionUrl -- identifiersorg [label="wp:interactionTarget", URL="http://vocabularies.wikipathways.org/wp:interactionTarget"]
 /*	relationships */
 
 

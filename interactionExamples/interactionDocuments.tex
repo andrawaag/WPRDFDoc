@@ -1,0 +1,117 @@
+%
+%  untitled
+%
+%  Created by Andra Waagmeester on 2013-09-24.
+%  Copyright (c) 2013 Maastricht University. All rights reserved.
+%
+\documentclass[]{article}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+
+% Setup for fullpage use
+\usepackage{fullpage}
+
+% Uncomment some of the following if you use the features
+%
+% Running Headers and footers
+%\usepackage{fancyhdr}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% More symbols
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{latexsym}
+
+% Surround parts of graphics with box
+\usepackage{boxedminipage}
+
+% Package for including code in the document
+\usepackage{listings}
+
+% If you want to generate a toc for each chapter (use with book)
+\usepackage{minitoc}
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+%\newif\ifpdf
+%\ifx\pdfoutput\undefined
+%\pdffalse % we are not running PDFLaTeX
+%\else
+%\pdfoutput=1 % we are running PDFLaTeX
+%\pdftrue
+%\fi
+
+\ifpdf
+\usepackage[pdftex]{graphicx}
+\else
+\usepackage{graphicx}
+\fi
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{listings,etoolbox}
+\title{WikiPathways RDF Interactions}
+\author{ Andra Waagmeester }
+
+\date{2013-09-24}
+
+\begin{document}
+
+\ifpdf
+\DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+\else
+\DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+
+\makeatletter
+\lst@Key{lastline}\relax{\ifnumcomp{#1}{<}{0}{%
+  \let\mylst@file\lst@intname\sbox0{\lstinputlisting{\mylst@file}}%
+  \def\lst@lastline{\the\numexpr#1+\value{lstnumber}-1\relax}}%
+  {\def\lst@lastline{#1\relax}}}
+\makeatother
+\maketitle
+
+
+\begin{abstract}
+\end{abstract}
+
+\section{Basic Interaction}
+\subsection{Pathway snippet}
+\includegraphics{basicInteraction.png}
+
+\subsection{GPML}
+\lstset{
+  language=XML,
+  morekeywords={encoding,
+    DataNode,TextLabel,GraphId,Type,Interaction, Point, X, Y, RelX, RelY, ArrowHead, Xref, Database, Width, Height, ZOrder, GraphRef, LineThickness, Graphics}
+}
+\lstinputlisting[firstline=4,lastline=-5]{basicInteraction.gpml}
+
+\section{Inhibition}
+\subsection{Pathway snippet}
+\includegraphics{directedInteraction.png}
+\subsection{GPML}
+
+\sbox0{\lstinputlisting{directedInteraction.gpml}}
+\lstinputlisting[firstline=4,lastline=-4]{directedInteraction.gpml}
+
+
+\subsection{RDFSchema}
+
+\section{Inhibition}
+\subsection{Pathway snippet}
+\includegraphics{inhibition.png}
+\subsection{GPML}
+
+
+\lstinputlisting[firstline=4,lastline=-5]{inhibition.gpml}
+
+\subsection{RDFSchema}
+
+\bibliographystyle{plain}
+\bibliography{}
+\end{document}
