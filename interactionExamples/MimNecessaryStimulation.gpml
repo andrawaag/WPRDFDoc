@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pathway xmlns="http://pathvisio.org/GPML/2013a" Name="Necessary Stimulation" Version="20130924">
+  <Graphics BoardWidth="386.0924911497674" BoardHeight="150.73719197578902" />
+  <DataNode TextLabel="GeneProduct" GraphId="ceece" Type="GeneProduct">
+    <Graphics CenterX="88.0" CenterY="49.0" Width="80.0" Height="20.0" ZOrder="32768" FontSize="10" Valign="Middle" />
+    <Xref Database="" ID="" />
+  </DataNode>
+  <DataNode TextLabel="GeneProduct" GraphId="fbc03" Type="GeneProduct">
+    <Graphics CenterX="257.07899881996894" CenterY="107.10559244780143" Width="80.0" Height="20.0" ZOrder="32768" FontSize="10" Valign="Middle" />
+    <Xref Database="" ID="" />
+  </DataNode>
+  <Interaction GraphId="idbd55299a">
+    <Graphics ZOrder="12288" LineThickness="1.0">
+      <Point X="128.0" Y="49.0" GraphRef="ceece" RelX="1.0" RelY="0.0" />
+      <Point X="256.44825956186264" Y="48.647555704687065" GraphRef="f8e7c" RelX="0.0" RelY="0.0" ArrowHead="mim-necessary-stimulation" />
+    </Graphics>
+    <Xref Database="" ID="" />
+  </Interaction>
+  <Interaction>
+    <Graphics ZOrder="12288" LineThickness="1.0">
+      <Point X="256.02776672312507" Y="16.34219787594415" />
+      <Point X="257.07899881996894" Y="97.10559244780143" GraphRef="fbc03" RelX="0.0" RelY="-1.0" ArrowHead="Arrow" />
+      <Anchor Position="0.4" Shape="None" GraphId="f8e7c" />
+    </Graphics>
+    <Xref Database="" ID="" />
+  </Interaction>
+  <InfoBox CenterX="0.0" CenterY="0.0" />
+  <Biopax />
+</Pathway>
+

@@ -1,0 +1,2 @@
+An asymmetric covalent non-reversible binding reaction (e.g. phosphorylation and acetylation) 
+where one of the substrates must be a modifier physical entity.

@@ -1,0 +1,4 @@
+A type of production without loss that involves a template (e.g. the polymerization of a nucleic 
+acid macromolecule from a nucleic acid macromolecule template).
+The template reaction glyph should be used to describe transcription or translation, but 
+the glyph itself is insufficient to distinguish between the two biological processes.

@@ -1,0 +1,3 @@
+An interaction where a controller entity causes a decrease in the velocity or extent of controlled
+reaction or contingency; the probability of the controlled interaction occurring remains greater 
+than 0.

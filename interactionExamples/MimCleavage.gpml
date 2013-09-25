@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Pathway xmlns="http://pathvisio.org/GPML/2013a" Name="Cleavage" Version="20130924">
+  <Graphics BoardWidth="318.0" BoardHeight="158.02698465959665" />
+  <DataNode TextLabel="GeneProduct" GraphId="ceece" Type="GeneProduct">
+    <Graphics CenterX="88.0" CenterY="49.0" Width="80.0" Height="20.0" ZOrder="32768" FontSize="10" Valign="Middle" />
+    <Xref Database="" ID="" />
+  </DataNode>
+  <DataNode TextLabel="GeneProduct" GraphId="fbc03" Type="GeneProduct">
+    <Graphics CenterX="248.0" CenterY="49.0" Width="80.0" Height="20.0" ZOrder="32768" FontSize="10" Valign="Middle" />
+    <Xref Database="" ID="" />
+  </DataNode>
+  <DataNode TextLabel="GeneProduct" GraphId="b4237" Type="GeneProduct">
+    <Graphics CenterX="157.06667958546333" CenterY="115.30328501360596" Width="80.0" Height="20.0" ZOrder="32768" FontSize="10" Valign="Middle" />
+    <Xref Database="" ID="" />
+  </DataNode>
+  <Interaction GraphId="ide9eb61d3">
+    <Graphics ZOrder="12288" LineThickness="1.0">
+      <Point X="128.0" Y="49.0" GraphRef="ceece" RelX="1.0" RelY="0.0" />
+      <Point X="208.0" Y="49.0" GraphRef="fbc03" RelX="-1.0" RelY="0.0" ArrowHead="mim-covalent-bond" />
+      <Anchor Position="0.4" Shape="None" GraphId="d22c8" />
+    </Graphics>
+    <Xref Database="" ID="" />
+  </Interaction>
+  <Interaction>
+    <Graphics ZOrder="12288" LineThickness="1.0">
+      <Point X="157.06667958546333" Y="105.30328501360596" GraphRef="b4237" RelX="0.0" RelY="-1.0" />
+      <Point X="160.0" Y="49.0" GraphRef="d22c8" RelX="0.0" RelY="0.0" ArrowHead="mim-cleavage" />
+    </Graphics>
+    <Xref Database="" ID="" />
+  </Interaction>
+  <InfoBox CenterX="0.0" CenterY="0.0" />
+  <Biopax />
+</Pathway>
+

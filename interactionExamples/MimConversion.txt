@@ -1,0 +1,2 @@
+An interaction in which one entity is transformed into one or more other entities (e.g. the 
+conversion of ATP to cyclical-AMP).

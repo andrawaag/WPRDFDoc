@@ -53,6 +53,7 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 \usepackage{listings,etoolbox}
+\usepackage{fancyvrb}
 \title{WikiPathways RDF Interactions}
 \author{ Andra Waagmeester }
 
@@ -75,42 +76,53 @@
 \makeatother
 \maketitle
 
-
-\begin{abstract}
-\end{abstract}
-
-\section{Basic Interaction}
-\subsection{Pathway snippet}
-\includegraphics{basicInteraction.png}
-
-\subsection{GPML}
 \lstset{
   language=XML,
   morekeywords={encoding,
     DataNode,TextLabel,GraphId,Type,Interaction, Point, X, Y, RelX, RelY, ArrowHead, Xref, Database, Width, Height, ZOrder, GraphRef, LineThickness, Graphics}
 }
-\lstinputlisting[firstline=4,lastline=-5]{basicInteraction.gpml}
 
-\section{Inhibition}
+\tableofcontents
+
+\newcommand{\docchapter}[1] {
+\section{#1}
 \subsection{Pathway snippet}
-\includegraphics{directedInteraction.png}
+\includegraphics{#1.png}
+\subsection{Description}
+\input{#1.txt}
 \subsection{GPML}
-
-\sbox0{\lstinputlisting{directedInteraction.gpml}}
-\lstinputlisting[firstline=4,lastline=-4]{directedInteraction.gpml}
-
-
+\lstinputlisting[firstline=4,lastline=-4]{#1.gpml}
 \subsection{RDFSchema}
+\subsection{RDF snippet}
+\newpage
+}
 
-\section{Inhibition}
-\subsection{Pathway snippet}
-\includegraphics{inhibition.png}
-\subsection{GPML}
+% Basic Interaction 
+\docchapter{Line}
+\docchapter{Arrow}
+\docchapter{TBar}
+\docchapter{Receptor}
+\docchapter{LigandSquare}
+\docchapter{ReceptorSquare}
+\docchapter{LigandRound}
+\docchapter{ReceptorBound}
+\docchapter{MimNecessaryStimulation}
+\docchapter{MimBinding}
+\docchapter{MimConversion}
+\docchapter{MimStimulation}
+\docchapter{MimModification}
+\docchapter{MimCatalysis}
+\docchapter{MimInhibition}
+\docchapter{MimCleavage}
+\docchapter{MimCovalentBond}
+\docchapter{MimBranchingLeft}
+\docchapter{MimBranchingRight}
+\docchapter{MimTranscriptionTranslation}
+\docchapter{MimGap}
 
 
-\lstinputlisting[firstline=4,lastline=-5]{inhibition.gpml}
 
-\subsection{RDFSchema}
+
 
 \bibliographystyle{plain}
 \bibliography{}
