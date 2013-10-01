@@ -1,1 +1,1 @@
-Is not defined in http://discover.nci.nih.gov/mim/formal_mim_spec.pdf
+Is not defined in \url{http://discover.nci.nih.gov/mim/formal_mim_spec.pdf}

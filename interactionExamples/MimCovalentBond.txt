@@ -1,1 +1,1 @@
-No description found in the Mim documentation (http://discover.nci.nih.gov/mim/formal_mim_spec.pdf)
+No description found in the Mim documentation (\url{http://discover.nci.nih.gov/mim/formal_mim_spec.pdf})

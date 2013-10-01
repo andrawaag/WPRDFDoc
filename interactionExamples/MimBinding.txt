@@ -1,4 +1,4 @@
 A complex physical entity created as a result of a binding interaction between two entities (e.g. a 
 protein complex).
 
-Current representation doesn\'t comply with the MIM Binding description see http://discover.nci.nih.gov/mim/formal_mim_spec.pdf
+Current representation doesn\'t comply with the MIM Binding description see \url{http://discover.nci.nih.gov/mim/formal_mim_spec.pdf}
