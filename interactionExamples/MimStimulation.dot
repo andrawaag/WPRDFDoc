@@ -1,0 +1,36 @@
+graph G {
+overlap=scale;
+
+interactionUrl1 [label="?interaction1"]
+interactionUrl2 [label="?interaction2"]
+wpInteraction [label="wp:Interaction", URL="http://vocabularies.wikipathways.org/wp#Interaction"]
+pathwayUrl [label="?pathway"]
+pathwayElement1 [label="?pathwayElement1"]
+pathwayElement2 [label="?pathwayElement2"]
+pwElementType [label="?pwElementType"]
+mimStimulationMarker [label="gpml:MimStimulationMarker"]
+arrowMarker [label="gpml:ArrowMarker"]
+wpGeneProduct [label="wp:GeneProduct", URL="http://vocabularies.wikipathways.org/wp#GeneProduct"]
+wpMetabolite [label="wp:Metabolite", URL="http://vocabularies.wikipathways.org/wp#Metabolite"]
+wpProtein [label="wp:Protein", URL="http://vocabularies.wikipathways.org/wp#Protein"]
+wpInteraction [label="wp:Interaction", URL="http://vocabularies.wikipathways.org/wp#Interaction"]
+wpPathway [label="wp:Pathway", URL="http://vocabularies.wikipathways.org/wp#Pathway"]
+
+interactionUrl1 -- wpInteraction [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+interactionUrl1 -- pathwayUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+interactionUrl2 -- wpInteraction [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+interactionUrl2 -- pathwayUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+pathwayElement1 -- interactionUrl1 [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+pathwayElement2 -- interactionUrl2 [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+pathwayElement1 -- pwElementType [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+pathwayElement2 -- pwElementType [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+pathwayElement1 -- mimStimulationMarker [label="gpml:hasMarker", URL="http://vocabularies.wikipathways.org/gpml#hasMarker"]
+pathwayElement2 -- arrowMarker [label="gpml:hasMarker", URL="http://vocabularies.wikipathways.org/gpml#hasMarker"]
+pwElementType -- wpGeneProduct [color=orange]
+pwElementType -- wpMetabolite [color=orange]
+pwElementType -- wpProtein [color=orange]
+pwElementType -- wpInteraction [color=orange]
+pwElementType -- wpPathway [color=orange]
+
+}
+

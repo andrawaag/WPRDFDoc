@@ -1,0 +1,35 @@
+graph G {
+overlap=scale;
+
+interactionUrl [label="?interaction"]
+wpInteraction [label="wp:Interaction", URL="http://vocabularies.wikipathways.org/wp#Interaction"]
+pathwayUrl [label="?pathway"]
+pathwayElement1 [label="?pathwayElement1"]
+pathwayElement2 [label="?pathwayElement2"]
+pwElementType [label="?pwElementType"]
+lineGlyph [label="gpml:LineGlyph"]
+arrowGlyph [label="gpml:arrowGlyph"]
+wpGeneProduct [label="wp:GeneProduct", URL="http://vocabularies.wikipathways.org/wp#GeneProduct"]
+wpMetabolite [label="wp:Metabolite", URL="http://vocabularies.wikipathways.org/wp#Metabolite"]
+wpProtein [label="wp:Protein", URL="http://vocabularies.wikipathways.org/wp#Protein"]
+wpInteraction [label="wp:Interaction", URL="http://vocabularies.wikipathways.org/wp#Interaction"]
+wpPathway [label="wp:Pathway", URL="http://vocabularies.wikipathways.org/wp#Pathway"]
+
+interactionUrl -- wpInteraction [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+interactionUrl -- pathwayUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+pathwayElement1 -- interactionUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+pathwayElement2 -- interactionUrl [label="dcterms:isPartOf", URL="http://purl.org/dc/terms/isPartOf"]
+pathwayElement1 -- pwElementType [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+pathwayElement2 -- pwElementType [label="rdf:type", URL="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"]
+pathwayElement1 -- lineGlyph [label="gpml:hasGlyph", URL="http://vocabularies.wikipathways.org/gpml#hasGlyph"]
+pathwayElement2 -- arrowGlyph [label="gpml:hasGlyph", URL="http://vocabularies.wikipathways.org/gpml#hasGlyph"]
+pwElementType -- wpGeneProduct [color=orange]
+pwElementType -- wpMetabolite [color=orange]
+pwElementType -- wpProtein [color=orange]
+pwElementType -- wpInteraction [color=orange]
+pwElementType -- wpPathway [color=orange]
+
+{ rank=max; wpGeneProduct; wpMetabolite; wpProtein;}; /* max is bottom */
+  { rank=min; interactionUrl}; /* max is bottom */
+}
+

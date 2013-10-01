@@ -1,0 +1,19 @@
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+PREFIX dcterms:  <http://purl.org/dc/terms/> .
+PREFIX wp:      <http://vocabularies.wikipathways.org/wp#> .
+PREFIX gpml:    <http://vocabularies.wikipathways.org/gpml#> .
+
+SELECT DISTINCT * WHERE {
+	?interaction1 rdf:type wp:Interaction .
+	?interaction1 dcterms:isPartOf ?pathway .
+	?interaction2 rdf:type wp:Interaction .
+	?interaction2 dcterms:isPartOf ?pathway .
+	?pwElement1 dcterms:isPartOf ?interaction1 .
+	?pwElement2 dcterms:isPartOf ?interaction1 .
+	?pwElement3 dcterms:isPartOf ?interaction2 .
+	?interaction1 dcterms:isPartOf ?interaction2 .
+	?interaction1 gpml:hasGlyph gpml:MimCleavageGlyph .
+	pwElement1 gpml:hasGlyph gpml:LineGlyph .
+	pwElement2 gpml:hasGlyph gpml:LineGlyph .
+	pwElement3 gpml:hasGlyph gpml:LineGlyph .
+}

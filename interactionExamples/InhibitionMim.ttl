@@ -1,0 +1,20 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix wp:      <http://vocabularies.wikipathways.org/wp#> .
+@prefix gpml:    <http://vocabularies.wikipathways.org/gpml#> .
+
+?interaction rdf:type wp:Interaction .
+?interaction dcterms:isPartOf ?pathway . 
+?pwElement1 dcterms:isPartOf ?interaction .
+?pwElement2 dcterms:isPartOf ?interaction .
+?pwElement1 rdf:type ?pwElementType .
+?pwElement2 rdf:type ?pwElementType .
+?pwElement1 gpml:hasGlyph gpml:LineGlyph .
+?pwElement2 gpml:hasGlyph gpml:LineGlyph .
+FILTER (?pwElementType == wp:GeneProduct ||
+        ?pwElementType == wp:Metabolite ||
+        ?pwElementType == wp:Interaction ||
+        ?pwElementType == wp:Pathway ||
+        ?pwElementType == wp:Protein) .
+
+
